@@ -15,38 +15,11 @@
   animation: fadeIn 1.2s ease-out;
 }
 
-.stitchedFrame {
-  position: relative;
-  padding: 0;
-  line-height: 0;
-}
-
-/* outer stitch line — flush with image edge */
-.stitchedFrame::before {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  border: 2px dashed #c4a882;
-  border-radius: 3px;
-  pointer-events: none;
-}
-
-/* inner stitch line — tight double-stitch */
-.stitchedFrame::after {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border: 1.5px dashed #d4b494;
-  border-radius: 2px;
-  pointer-events: none;
-  opacity: 0.6;
-}
-
 .illustration {
   display: block;
-  width: min(380px, 65vw);
+  width: min(280px, 50vw);
   height: auto;
-  max-height: 70vh;
+  max-height: 55vh;
   object-fit: contain;
   filter: drop-shadow(0 2px 12px rgba(44, 36, 22, 0.1));
 }

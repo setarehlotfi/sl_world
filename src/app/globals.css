@@ -9,7 +9,7 @@
 
 /* === Custom Properties === */
 :root {
-  --color-bg: #E9DCCB;
+  --color-bg: #D7CCBE;
   --color-text: #2c2416;
   --color-text-muted: #6b5d4f;
   --color-accent: #8b7355;
@@ -44,44 +44,20 @@ body {
   font-family: var(--font-sans);
   color: var(--color-text);
   background-color: var(--color-bg);
-  background-image:
-    /* horizontal weave threads */
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 0, 0, 0.03) 2px,
-      rgba(0, 0, 0, 0.03) 3px
-    ),
-    /* vertical weave threads */
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 0, 0, 0.03) 2px,
-      rgba(0, 0, 0, 0.03) 3px
-    ),
-    /* secondary offset horizontal threads for woven feel */
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 5px,
-      rgba(255, 255, 255, 0.04) 5px,
-      rgba(255, 255, 255, 0.04) 6px
-    ),
-    /* secondary offset vertical threads */
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 5px,
-      rgba(255, 255, 255, 0.04) 5px,
-      rgba(255, 255, 255, 0.04) 6px
-    ),
-    /* subtle grain/noise texture via SVG */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-  background-size: 4px 4px, 4px 4px, 8px 8px, 8px 8px, 200px 200px;
   min-height: 100vh;
   min-height: 100dvh;
+  position: relative;
+}
+
+/* Canvas texture layer — sits behind all content */
+.canvas-texture {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--color-bg);
+  background-image: url("/textures/linen-bg.svg");
+  background-repeat: repeat;
+  background-size: 10px 10px;
 }
 
 a {

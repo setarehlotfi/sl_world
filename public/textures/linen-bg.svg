@@ -1,13 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">
-  <defs>
-    <filter id="linen" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="6" stitchTiles="stitch" result="noise"/>
-      <feDiffuseLighting in="noise" lighting-color="#F5F0E8" surfaceScale="1.5" result="diffLight">
-        <feDistantLight azimuth="45" elevation="55"/>
-      </feDiffuseLighting>
-      <feComposite in="diffLight" in2="noise" operator="in" result="composite"/>
-      <feBlend in="composite" in2="SourceGraphic" mode="multiply"/>
-    </filter>
-  </defs>
-  <rect width="100%" height="100%" fill="#F5F0E8" filter="url(#linen)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10">
+  <rect width="10" height="10" fill="#D7CCBE"/>
+  <!-- horizontal threads -->
+  <line x1="0" y1="1" x2="10" y2="1" stroke="#c2b6a4" stroke-width="0.8"/>
+  <line x1="0" y1="3" x2="10" y2="3" stroke="#c8bcab" stroke-width="0.4"/>
+  <line x1="0" y1="5" x2="10" y2="5" stroke="#bfb3a0" stroke-width="0.8"/>
+  <line x1="0" y1="7" x2="10" y2="7" stroke="#c5b9a8" stroke-width="0.4"/>
+  <line x1="0" y1="9" x2="10" y2="9" stroke="#c2b6a4" stroke-width="0.6"/>
+  <!-- vertical threads -->
+  <line x1="1" y1="0" x2="1" y2="10" stroke="#c2b6a4" stroke-width="0.8"/>
+  <line x1="3" y1="0" x2="3" y2="10" stroke="#c8bcab" stroke-width="0.4"/>
+  <line x1="5" y1="0" x2="5" y2="10" stroke="#bfb3a0" stroke-width="0.8"/>
+  <line x1="7" y1="0" x2="7" y2="10" stroke="#c5b9a8" stroke-width="0.4"/>
+  <line x1="9" y1="0" x2="9" y2="10" stroke="#c2b6a4" stroke-width="0.6"/>
+  <!-- weave crossing highlights — lighter where threads overlap -->
+  <rect x="0.5" y="0.5" width="1" height="1" fill="#ddd3c5" opacity="0.5"/>
+  <rect x="4.5" y="4.5" width="1" height="1" fill="#ddd3c5" opacity="0.5"/>
+  <rect x="0.5" y="4.5" width="1" height="1" fill="#b8ab98" opacity="0.3"/>
+  <rect x="4.5" y="0.5" width="1" height="1" fill="#b8ab98" opacity="0.3"/>
+  <rect x="2.5" y="2.5" width="1" height="1" fill="#ddd3c5" opacity="0.4"/>
+  <rect x="6.5" y="6.5" width="1" height="1" fill="#ddd3c5" opacity="0.4"/>
+  <rect x="8.5" y="8.5" width="1" height="1" fill="#b8ab98" opacity="0.25"/>
+  <rect x="2.5" y="6.5" width="1" height="1" fill="#b8ab98" opacity="0.25"/>
 </svg>

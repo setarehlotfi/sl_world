@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SL World",
     description: "A personal world.",
-    images: ["/images/sl-world-oval.png"],
+    images: ["/images/sl-world-hero.png"],
   },
 };
 
@@ -19,7 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${karla.variable}`}>
-      <body>{children}</body>
+      <body>
+        {/* Background texture layer */}
+        <div className="canvas-texture" aria-hidden="true" />
+        {children}
+      </body>
     </html>
   );
 }
