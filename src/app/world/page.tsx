@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 import EditorSidebar from "@/components/EditorSidebar/EditorSidebar";
 import styles from "./page.module.css";
 
@@ -27,7 +28,9 @@ export default function WorldPage() {
   return (
     <>
       <header className={styles.topBar}>
-        <div className={styles.topBrand}>Setareh Lotfi</div>
+        <div className={styles.topBrand}>
+          <Image src="/images/logo.png" alt="Setareh Lotfi" width={140} height={40} className={styles.topLogo} priority />
+        </div>
         <span className={styles.topPageTitle}>Correspondence</span>
         <div className={styles.topNavSection}>
           <p className={styles.topDescription}>
@@ -37,7 +40,6 @@ export default function WorldPage() {
             Dispatches arrive when they arrive. No sooner.
           </p>
         </div>
-        <div className={styles.topIcon}>s</div>
       </header>
 
       <div className={styles.pageLayout}>

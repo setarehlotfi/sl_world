@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./EditorSidebar.module.css";
 
 type SubItem = { label: string; href: string };
@@ -105,7 +106,7 @@ export default function EditorSidebar() {
       </nav>
       <div className={styles.sidebarFooter}>
         <div className={styles.footerBrand}>
-          <Link href="/">Setareh Lotfi</Link>
+          <Link href="/"><Image src="/images/logo.png" alt="Setareh Lotfi" width={100} height={28} className={styles.footerLogo} /></Link>
         </div>
         <div className={styles.footerInfo}>
           Somewhere Quiet
