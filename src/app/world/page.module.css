@@ -243,60 +243,180 @@
 
 .marginNote {
   position: sticky;
-  top: 38vh;
+  top: 2.5rem;
 }
 
-.marginNoteImg {
-  width: 100%;
-  height: 150px;
-  background:
-    linear-gradient(170deg,
-      rgba(130, 115, 85, 0.22) 0%,
-      rgba(110, 100, 75, 0.12) 50%,
-      rgba(90, 80, 60, 0.18) 100%
-    );
-  margin-bottom: 0.5rem;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(44, 36, 22, 0.08);
+/* --- Book Edition (Airmail Weekly style) --- */
+
+.bookEdition {
+  margin-bottom: 2.5rem;
 }
 
-.marginNoteImg::before {
-  content: "";
-  position: absolute;
-  top: 15%;
-  left: 12%;
-  right: 12%;
-  bottom: 15%;
-  border: 1px solid rgba(44, 36, 22, 0.05);
+.bookEditionHeader {
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  text-align: center;
+  margin-bottom: 0.4rem;
 }
 
-.bookLabel {
-  position: absolute;
-  top: 28%;
-  left: 50%;
-  transform: translateX(-50%);
+.bookEditionWeek {
   font-family: var(--font-typewriter);
-  font-size: 0.6rem;
+  font-size: 0.42rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(44, 36, 22, 0.25);
+  color: var(--ink-faint);
   text-align: center;
-  line-height: 1.5;
-  white-space: nowrap;
+  margin-bottom: 0.5rem;
 }
 
-.bookAuthor {
+.bookEditionRule {
+  width: 100%;
+  height: 1px;
+  background: rgba(44, 36, 22, 0.12);
+  margin-bottom: 1rem;
+}
+
+.bookCover {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  max-height: 180px;
+  background:
+    linear-gradient(165deg,
+      #3d3529 0%,
+      #2a2318 40%,
+      #1e1a14 100%
+    );
+  margin: 0 auto 0.8rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    3px 3px 12px rgba(44, 36, 22, 0.25),
+    1px 1px 3px rgba(44, 36, 22, 0.15);
+}
+
+.bookCover::before {
+  content: "";
   position: absolute;
-  bottom: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-typewriter);
-  font-size: 0.45rem;
-  letter-spacing: 0.06em;
+  inset: 6%;
+  border: 1px solid rgba(200, 180, 140, 0.12);
+}
+
+.bookCover::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(200, 180, 140, 0.1) 20%,
+    rgba(200, 180, 140, 0.1) 80%,
+    transparent
+  );
+}
+
+.bookCoverInner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookCoverTitle {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(44, 36, 22, 0.18);
-  white-space: nowrap;
+  color: rgba(200, 180, 140, 0.45);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.bookTitle {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 0.15rem;
+}
+
+.bookAuthorName {
+  font-family: var(--font-typewriter);
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.bookReviewRule {
+  width: 24px;
+  height: 1px;
+  background: rgba(44, 36, 22, 0.15);
+  margin: 0 auto 0.6rem;
+}
+
+.bookReview {
+  font-family: var(--font-serif);
+  font-size: 0.58rem;
+  line-height: 1.6;
+  color: var(--ink);
+  text-align: left;
+  font-style: italic;
+}
+
+.bookReview em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.bookRating {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  margin: 0.7rem 0 0.4rem;
+}
+
+.ratingDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ink-light);
+}
+
+.ratingDotEmpty {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-light);
+  background: transparent;
+}
+
+.bookEditionFooter {
+  font-family: var(--font-typewriter);
+  font-size: 0.42rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+/* --- Margin Notes (below book) --- */
+
+.marginNotes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .marginNoteText {

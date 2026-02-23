@@ -6,7 +6,17 @@ import Link from 'next/link';
 import EditorSidebar from "@/components/EditorSidebar/EditorSidebar";
 import styles from "./page.module.css";
 
+function getWeekNumber() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 1);
+  const diff = now.getTime() - start.getTime();
+  return Math.ceil((diff / 86400000 + start.getDay() + 1) / 7);
+}
+
 export default function WorldPage() {
+  const weekNumber = getWeekNumber();
+  const year = new Date().getFullYear();
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -126,21 +136,34 @@ export default function WorldPage() {
 
         <aside className={styles.rightMargin} data-margin>
           <div className={styles.marginNote}>
-            <div className={styles.marginNoteImg}>
-              <div className={styles.bookLabel}>In Praise<br />of Slowness</div>
-              <div className={styles.bookAuthor}>Carl Honor&eacute;</div>
+            <div className={styles.bookEdition}>
+              <div className={styles.bookEditionHeader}>Currently Reading</div>
+              <div className={styles.bookEditionWeek}>Week {weekNumber}, {year}</div>
+              <div className={styles.bookEditionRule} />
+              <div className={styles.bookCover}>
+                <div className={styles.bookCoverInner}>
+                  <span className={styles.bookCoverTitle}>Apple<br />in China</span>
+                </div>
+              </div>
+              <h3 className={styles.bookTitle}>Apple in China</h3>
+              <p className={styles.bookAuthorName}>Patrick McGee</p>
+              <div className={styles.bookReviewRule} />
+              <p className={styles.bookReview}>
+                Cupertino&rsquo;s Faustian waltz with Beijing, rendered with the quiet authority of a man who has read every footnote in the room. A corporate thriller in the sober cloth of serious journalism. One finishes feeling not outraged but <em>implicated</em>&mdash;the mark of genuinely uncomfortable writing.
+              </p>
             </div>
-            <p className={styles.marginNoteText}>
-              <span className={styles.noteNumber}>[1]</span> Carl Honor&eacute; wrote an entire book about the global movement toward deceleration, which I read very slowly over the course of a summer. He would have approved.
-            </p>
-            <br />
-            <p className={styles.marginNoteText}>
-              <span className={styles.noteNumber}>[2]</span> The average transatlantic letter in 1842 took twenty-one days. One imagines the sender chose their words with considerably more care than we do when firing off a Slack message at 11:47pm.
-            </p>
-            <br />
-            <p className={styles.marginNoteText}>
-              <span className={styles.noteNumber}>[3]</span> See: fig. 01 of the ongoing door photography series. Or don&rsquo;t. There&rsquo;s no rush.
-            </p>
+
+            <div className={styles.marginNotes}>
+              <p className={styles.marginNoteText}>
+                <span className={styles.noteNumber}>[1]</span> Carl Honor&eacute; wrote an entire book about the global movement toward deceleration, which I read very slowly over the course of a summer. He would have approved.
+              </p>
+              <p className={styles.marginNoteText}>
+                <span className={styles.noteNumber}>[2]</span> The average transatlantic letter in 1842 took twenty-one days. One imagines the sender chose their words with considerably more care than we do when firing off a Slack message at 11:47pm.
+              </p>
+              <p className={styles.marginNoteText}>
+                <span className={styles.noteNumber}>[3]</span> See: fig. 01 of the ongoing door photography series. Or don&rsquo;t. There&rsquo;s no rush.
+              </p>
+            </div>
           </div>
         </aside>
       </div>

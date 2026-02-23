@@ -28,6 +28,7 @@ export default function Page() {
               />
             </svg>
           </div>
+          <p className={styles.byline}>by SL</p>
         </div>
       </Link>
     </div>

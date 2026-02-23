@@ -88,6 +88,18 @@
   color: var(--color-text);
 }
 
+/* "by SL" byline */
+.byline {
+  font-family: var(--font-typewriter);
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 0.6rem;
+  opacity: 0;
+  animation: fadeIn 1.6s ease-out 1.8s both;
+}
+
 /* ==============================
    Animations
    ============================== */
