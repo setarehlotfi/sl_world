@@ -17,9 +17,9 @@
 
 .illustration {
   display: block;
-  width: min(280px, 50vw);
+  width: min(520px, 80vw);
   height: auto;
-  max-height: 55vh;
+  max-height: 75vh;
   object-fit: contain;
   filter: drop-shadow(0 2px 12px rgba(44, 36, 22, 0.1));
 }

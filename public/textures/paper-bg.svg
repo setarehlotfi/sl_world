@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+  <filter id="paper" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <!-- Horizontal fiber streaks — low x-freq stretches horizontally, high y-freq compresses vertically -->
+    <feTurbulence type="fractalNoise" baseFrequency="0.025 0.1" numOctaves="5" seed="2" stitchTiles="stitch" result="fibers"/>
+    <feColorMatrix type="saturate" values="0" in="fibers" result="fibers-gray"/>
+
+    <!-- Fine paper grain -->
+    <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="3" seed="15" stitchTiles="stitch" result="grain"/>
+    <feColorMatrix type="saturate" values="0" in="grain" result="grain-gray"/>
+
+    <!-- Blend: 65% fibers + 35% grain -->
+    <feComposite in="fibers-gray" in2="grain-gray" operator="arithmetic" k1="0" k2="0.65" k3="0.35" k4="0" result="blended"/>
+
+    <!-- Map to warm paper tones (centered around #D7CCBE) -->
+    <feComponentTransfer in="blended">
+      <feFuncR type="linear" slope="0.09" intercept="0.80"/>
+      <feFuncG type="linear" slope="0.09" intercept="0.76"/>
+      <feFuncB type="linear" slope="0.09" intercept="0.70"/>
+    </feComponentTransfer>
+  </filter>
+  <rect width="300" height="300" filter="url(#paper)"/>
+</svg>
