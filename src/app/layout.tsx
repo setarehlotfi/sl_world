@@ -3,10 +3,13 @@ import { cormorant, karla, dancingScript, playfair, specialElite } from "@/lib/f
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SL World",
+  title: "Setareh Lotfi",
   description: "A personal world.",
+  icons: {
+    icon: "/images/favicon.png",
+  },
   openGraph: {
-    title: "SL World",
+    title: "Setareh Lotfi",
     description: "A personal world.",
     images: ["/images/sl-world-hero.png"],
   },
