@@ -9,7 +9,7 @@
 
 /* === Custom Properties === */
 :root {
-  --color-bg: #D7CCBE;
+  --color-bg: #E8DFCE;
   --color-text: #2c2416;
   --color-text-muted: #6b5d4f;
   --color-accent: #8b7355;
@@ -24,6 +24,12 @@
   --space-md: 2rem;
   --space-lg: 4rem;
   --space-xl: 6rem;
+
+  /* Editorial typography */
+  --font-size-body: 1.125rem;
+  --font-size-caption: 0.6875rem;
+  --font-size-small: 0.625rem;
+  --sidebar-width: 200px;
 }
 
 @media (max-width: 768px) {
@@ -36,14 +42,16 @@
 /* === Base Styles === */
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg);
 }
 
 body {
   font-family: var(--font-sans);
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background-color: transparent;
   min-height: 100vh;
   min-height: 100dvh;
   position: relative;
@@ -56,8 +64,10 @@ body {
   z-index: -1;
   background-color: var(--color-bg);
   background-image: url("/textures/paper-photo.png");
-  background-repeat: repeat;
-  background-size: 400px auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: background-color 0.8s ease;
 }
 
 a {
