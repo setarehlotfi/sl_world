@@ -18,6 +18,16 @@
 
   --font-serif: "Georgia", serif;
   --font-sans: "Helvetica Neue", sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-typewriter: "Special Elite", "Courier New", monospace;
+
+  --ink: rgba(44, 36, 22, 0.62);
+  --ink-dark: rgba(44, 36, 22, 0.82);
+  --ink-light: rgba(44, 36, 22, 0.35);
+  --ink-faint: rgba(44, 36, 22, 0.18);
+
+  --sidebar-column-width: 260px;
+  --margin-column-width: 180px;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;

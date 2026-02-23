@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { cormorant, karla, dancingScript } from "@/lib/fonts";
+import { cormorant, karla, dancingScript, playfair, specialElite } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${karla.variable} ${dancingScript.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${karla.variable} ${dancingScript.variable} ${playfair.variable} ${specialElite.variable}`}>
       <body>
         {/* Background texture layer */}
         <div className="canvas-texture" aria-hidden="true" />
