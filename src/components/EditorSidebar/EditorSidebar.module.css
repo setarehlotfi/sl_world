@@ -9,9 +9,15 @@
   height: 100vh;
   height: 100dvh;
   overflow-y: auto;
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE / Edge */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;                  /* Chrome / Safari */
 }
 
 .sidebarNav {

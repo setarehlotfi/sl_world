@@ -132,6 +132,7 @@ export default function WorldPage() {
             <p>Yours, unhurriedly,</p>
             <p>&mdash; The Proprietor</p>
           </div>
+
         </main>
 
         <aside className={styles.rightMargin} data-margin>

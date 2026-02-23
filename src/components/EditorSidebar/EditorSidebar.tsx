@@ -31,9 +31,9 @@ const chapters: Chapter[] = [
   {
     numeral: "III",
     title: "Library",
-    href: "#library",
+    href: "/reading-list",
     subItems: [
-      { label: "Reading List", href: "#reading-list" },
+      { label: "Reading List", href: "/reading-list" },
       { label: "Marginalia", href: "#marginalia" },
     ],
   },
