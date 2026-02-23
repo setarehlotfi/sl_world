@@ -3,13 +3,13 @@ import { cormorant, karla, dancingScript, playfair, specialElite } from "@/lib/f
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Setareh Lotfi",
+  title: "From Setareh's Sketch Book",
   description: "A personal world.",
   icons: {
     icon: "/images/favicon.png",
   },
   openGraph: {
-    title: "Setareh Lotfi",
+    title: "From Setareh's Sketch Book",
     description: "A personal world.",
     images: ["/images/sl-world-hero.png"],
   },

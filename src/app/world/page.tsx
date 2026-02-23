@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import EditorSidebar from "@/components/EditorSidebar/EditorSidebar";
 import styles from "./page.module.css";
 
@@ -28,9 +29,9 @@ export default function WorldPage() {
   return (
     <>
       <header className={styles.topBar}>
-        <div className={styles.topBrand}>
+        <Link href="/" className={styles.topBrand}>
           <Image src="/images/logo.png" alt="Setareh Lotfi" width={140} height={40} className={styles.topLogo} priority />
-        </div>
+        </Link>
         <span className={styles.topPageTitle}>Correspondence</span>
         <div className={styles.topNavSection}>
           <p className={styles.topDescription}>
