@@ -152,6 +152,16 @@
   transition: color 0.5s ease;
 }
 
+.footerBuild {
+  font-family: var(--font-typewriter);
+  font-size: 0.58rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+  margin-top: 0.8rem;
+  opacity: 0.6;
+  transition: color 0.5s ease;
+}
+
 /* ==============================
    Responsive
    ============================== */

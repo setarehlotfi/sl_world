@@ -211,6 +211,13 @@ const books: Book[] = [
     description: `A lunar colony revolts against Earth, guided by a sentient computer and a one-armed political agitator. Heinlein wrote it in 1966 and somehow predicted decentralized governance, AI companions, and the general temperament of anyone who has ever described themselves as a \u201clibertarian space enthusiast.\u201d Disturbingly prescient.`,
   },
   {
+    author: "Roland Barthes",
+    title: "Camera Lucida",
+    tags: ["Dead Philosophers", "Cocktail Party Ammunition"],
+    pretension: 5,
+    description: `Barthes wrote a book about photography and accidentally wrote the most devastating meditation on grief since the invention of the funeral. He spends half the book developing an elaborate theory of the image and the other half trying not to cry about his mother. The result is 119 pages of exquisite French melancholy that will make you look at every photograph you\u2019ve ever taken and think, \u201cwell, that\u2019s ruined now.\u201d Essential reading for anyone who has ever described a snapshot as \u201chaunting.\u201d`,
+  },
+  {
     author: "Antoine de Saint-Exup\u00e9ry",
     title: "The Little Prince",
     tags: ["Fiction & Literature", "Gateway Drugs"],
@@ -318,7 +325,6 @@ function BookCard({ book }: { book: Book }) {
 }
 
 export default function ReadingList() {
-  const [search, setSearch] = useState('');
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState('editorial');
 
@@ -326,15 +332,6 @@ export default function ReadingList() {
     let result = books;
     if (activeTag) {
       result = result.filter((b) => b.tags.includes(activeTag));
-    }
-    if (search.trim()) {
-      const q = search.toLowerCase();
-      result = result.filter(
-        (b) =>
-          b.title.toLowerCase().includes(q) ||
-          b.author.toLowerCase().includes(q) ||
-          b.description.toLowerCase().includes(q)
-      );
     }
     if (sortBy === 'pretension-high') {
       result = [...result].sort((a, b) => b.pretension - a.pretension);
@@ -344,7 +341,7 @@ export default function ReadingList() {
       result = [...result].sort((a, b) => a.title.localeCompare(b.title));
     }
     return result;
-  }, [search, activeTag, sortBy]);
+  }, [activeTag, sortBy]);
 
   return (
     <section id="reading-list" className={styles.section}>
@@ -356,16 +353,14 @@ export default function ReadingList() {
         and the profoundly unbothered.
       </p>
 
-      <div className={styles.controls}>
-        <div className={styles.searchWrapper}>
-          <input
-            type="text"
-            placeholder="Search titles, authors, or keywords..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className={styles.searchInput}
-          />
-        </div>
+      <div className={styles.resultsBar}>
+        <span className={styles.resultsText}>
+          {filtered.length === 0
+            ? "No books found."
+            : filtered.length === 1
+            ? "1 title"
+            : `${filtered.length} titles`}
+        </span>
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
@@ -383,10 +378,9 @@ export default function ReadingList() {
           onClick={() => setActiveTag(null)}
           className={`${styles.tagButton} ${!activeTag ? styles.tagButtonActive : ''}`}
         >
-          All Books ({books.length})
+          [All]
         </button>
         {ALL_TAGS.map((tag) => {
-          const count = books.filter((b) => b.tags.includes(tag)).length;
           const isActive = activeTag === tag;
           return (
             <button
@@ -394,24 +388,10 @@ export default function ReadingList() {
               onClick={() => setActiveTag(isActive ? null : tag)}
               className={`${styles.tagButton} ${isActive ? styles.tagButtonActive : ''}`}
             >
-              {tag} ({count})
+              [{tag}]
             </button>
           );
         })}
-      </div>
-
-      {activeTag && (
-        <p className={styles.tagDescription}>{TAG_DESCRIPTIONS[activeTag]}</p>
-      )}
-
-      <div className={styles.resultsBar}>
-        <p className={styles.resultsText}>
-          {filtered.length === 0
-            ? "No books found. Perhaps lower your standards."
-            : filtered.length === 1
-            ? "1 title. A person of singular taste."
-            : `${filtered.length} titles. Proceed at your own intellectual risk.`}
-        </p>
       </div>
 
       <div>
@@ -421,12 +401,12 @@ export default function ReadingList() {
       </div>
 
       <div className={styles.footer}>
-        <p className={styles.footerQuote}>
-          If you find the above too taxing, there is always T.S. Eliot. One
-          needn&rsquo;t understand <em>The Waste Land</em>; one simply needs to look
-          profoundly depressed while holding a copy of it near a fountain.
+        <p className={styles.footerNote}>
+          <strong>A Note on These Selections:</strong> If you find any of the
+          following too taxing, there is always T.S. Eliot. One needn&rsquo;t
+          understand <em>The Waste Land</em>; one simply needs to look profoundly
+          depressed while holding a copy of it near a fountain.
         </p>
-        <div className={styles.footerRule} />
       </div>
     </section>
   );

@@ -15,7 +15,7 @@ const chapters: Chapter[] = [
   {
     numeral: "I",
     title: "Correspondence",
-    href: "#correspondence",
+    href: "/world#correspondence",
     active: true,
   },
   {
@@ -42,9 +42,7 @@ const chapters: Chapter[] = [
     title: "Collected Objects",
     href: "#collected-objects",
     subItems: [
-      { label: "Photographs", href: "#photographs" },
       { label: "Ephemera", href: "#ephemera" },
-      { label: "Field Drawings", href: "#field-drawings" },
     ],
   },
   {
@@ -60,21 +58,16 @@ const chapters: Chapter[] = [
   },
   {
     numeral: "VI",
-    title: "Index",
-    href: "#index",
-  },
-  {
-    numeral: "VII",
     title: "Press & Mentions",
     href: "#press-mentions",
   },
   {
-    numeral: "VIII",
-    title: "Write to Me",
-    href: "#write-to-me",
+    numeral: "VII",
+    title: "Known Whereabouts",
+    href: "#known-whereabouts",
     subItems: [
-      { label: "Inquiries", href: "#inquiries" },
-      { label: "Commissions", href: "#commissions" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/setarehlotfi" },
+      { label: "X", href: "https://x.com/setarehlotfi" },
     ],
   },
 ];
@@ -109,11 +102,12 @@ export default function EditorSidebar() {
           <Link href="/"><Image src="/images/logo.png" alt="Setareh Lotfi" width={100} height={28} className={styles.footerLogo} /></Link>
         </div>
         <div className={styles.footerInfo}>
-          Somewhere Quiet
+          40.7128° N, 74.0060° W
+        </div>
+        <div className={styles.footerBuild}>
+          v{process.env.NEXT_PUBLIC_VERSION} · node --patience
           <br />
-          <a href="mailto:hello@theslowworld.com">hello@theslowworld.com</a>
-          <br />
-          <a href="#">@theslowworld</a>
+          npm run slowly
         </div>
       </div>
     </aside>

@@ -253,9 +253,9 @@
 }
 
 .bookEditionHeader {
-  font-family: var(--font-display);
-  font-size: 0.55rem;
-  letter-spacing: 0.35em;
+  font-family: var(--font-typewriter);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-light);
   text-align: center;
@@ -264,7 +264,7 @@
 
 .bookEditionWeek {
   font-family: var(--font-typewriter);
-  font-size: 0.42rem;
+  font-size: 0.55rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -339,10 +339,10 @@
 }
 
 .bookTitle {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: 0.85rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   color: var(--color-text);
   text-align: center;
   margin-bottom: 0.15rem;
@@ -366,17 +366,16 @@
 }
 
 .bookReview {
-  font-family: var(--font-serif);
+  font-family: var(--font-typewriter);
   font-size: 0.58rem;
+  font-weight: 400;
   line-height: 1.6;
   color: var(--ink);
   text-align: left;
-  font-style: italic;
 }
 
 .bookReview em {
-  font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text);
 }
 
