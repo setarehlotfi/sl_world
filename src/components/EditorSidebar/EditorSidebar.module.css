@@ -168,35 +168,6 @@
 
 @media (max-width: 860px) {
   .sidebar {
-    position: relative;
-    height: auto;
-    padding: 1.5rem 2rem;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .sidebarNav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .navSub,
-  .sidebarFooter {
-    display: none;
-  }
-
-  .navGroup {
-    padding-left: 0;
-  }
-
-  .navNumber {
-    position: static;
-    display: none;
-  }
-
-  .navCategory.active::before {
     display: none;
   }
 }

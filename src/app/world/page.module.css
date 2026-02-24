@@ -113,6 +113,20 @@
   margin: 0 auto;
 }
 
+/* ===== MOBILE LOGO (above letter, mobile only) ===== */
+
+.mobileLogo {
+  display: none;
+}
+
+.mobileLogoImg {
+  height: auto;
+  width: auto;
+  max-height: 80px;
+  object-fit: contain;
+  opacity: 0.65;
+}
+
 /* ===== CHAPTER HEADING ===== */
 
 .chapterNumber {
@@ -506,26 +520,13 @@
     top: 0;
   }
 
-  .topNavSection {
-    display: none;
-  }
-
   .topBar {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .topBrand {
-    min-width: unset;
-    width: 100%;
-    text-align: center;
-  }
-
-  .topLogo {
-    margin: 0 auto;
-  }
-
-  .topPageTitle {
     display: none;
+  }
+
+  .mobileLogo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
   }
 }

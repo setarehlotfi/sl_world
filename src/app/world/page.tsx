@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import EditorSidebar from "@/components/EditorSidebar/EditorSidebar";
+import MobileWorldMenu from "@/components/MobileWorldMenu/MobileWorldMenu";
 import styles from "./page.module.css";
 
 function getWeekNumber() {
@@ -38,6 +39,7 @@ export default function WorldPage() {
 
   return (
     <>
+      <MobileWorldMenu />
       <header className={styles.topBar}>
         <Link href="/" className={styles.topBrand}>
           <Image src="/images/logo.png" alt="Setareh Lotfi" width={140} height={40} className={styles.topLogo} priority />
@@ -57,6 +59,9 @@ export default function WorldPage() {
         <EditorSidebar />
 
         <main className={styles.mainContent} data-main>
+          <div className={styles.mobileLogo}>
+            <Image src="/images/logo.png" alt="Setareh Lotfi" width={160} height={46} className={styles.mobileLogoImg} />
+          </div>
           <div className={`${styles.chapterNumber} ${styles.fadeIn} ${styles.d1}`}>I.</div>
           <h1 className={`${styles.chapterTitle} ${styles.fadeIn} ${styles.d2}`}>
             A Letter to<br />Whoever Arrives
