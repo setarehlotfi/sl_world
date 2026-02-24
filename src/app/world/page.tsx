@@ -68,8 +68,8 @@ export default function WorldPage() {
           </h1>
 
           <div className={`${styles.prose} ${styles.fadeIn} ${styles.d3}`}>
-            <p className={styles.indent1}>
-              Dear visitor, you&rsquo;ve found me. I can&rsquo;t reproduce this result. This page has no discoverability pipeline, no embedding in anyone&rsquo;s retrieval system, and a robots.txt that was written with genuine intent. Your arrival appears to be non-deterministic, and I find that as a sign of excellent taste on your part.
+            <p className={`${styles.indent1} ${styles.dropCapParagraph}`}>
+              <span className={styles.dropCap}>D</span>ear visitor, you&rsquo;ve found me. I can&rsquo;t reproduce this result. This page has no discoverability pipeline, no embedding in anyone&rsquo;s retrieval system, and a robots.txt that was written with genuine intent. Your arrival appears to be non-deterministic, and I find that as a sign of excellent taste on your part.
             </p>
             <p className={styles.indent2}>
               I am a person who makes things. I&rsquo;ve been at it since high school, when the App Store was still young enough to feel like a frontier and I became the kind of person who read Apple developer documentation for fun. I taught myself Objective-C and built an English-to-Farsi dictionary app because it didn&rsquo;t exist and I needed one. This was around 2010. There was no NLP to speak of on mobile. Siri didn&rsquo;t exist. Google Translate was a website that barely worked. If you wanted a Farsi dictionary in your pocket, someone had to sit down and build you a Farsi dictionary for your pocket. I eventually ran the whole thing on Parse, which Facebook would later acquire and then, in an act of corporate tenderness, shut down entirely<span className={styles.supRef}>[1]</span>. I think about what that app would look like today with vibe coding and genuinely lose a few minutes to grief. But the point is: <em>the thing should exist, so I will make the thing</em>. That particular instinct has been running my life ever since, with varying degrees of financial and emotional consequence.

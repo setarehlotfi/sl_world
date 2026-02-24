@@ -188,6 +188,23 @@
 .indent2 { margin-left: 0; }
 .indent3 { margin-left: 8rem; }
 
+/* ===== DROP CAP ===== */
+
+.dropCapParagraph {
+  position: relative;
+}
+
+.dropCap {
+  font-family: var(--font-display);
+  font-size: 4.2rem;
+  font-weight: 400;
+  float: left;
+  line-height: 0.78;
+  margin-right: 0.08em;
+  margin-top: 0.08em;
+  color: var(--color-text);
+}
+
 .supRef {
   font-family: var(--font-typewriter);
   font-size: 0.55rem;
@@ -506,10 +523,9 @@
     padding: 2rem;
   }
 
-  .indent1,
-  .indent3 {
-    margin-left: 0;
-  }
+  .indent1 { margin-left: 2rem; }
+  .indent2 { margin-left: 0; }
+  .indent3 { margin-left: 3.5rem; }
 
   .rightMargin {
     padding: 2rem;
