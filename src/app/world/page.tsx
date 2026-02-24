@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import EditorSidebar from "@/components/EditorSidebar/EditorSidebar";
@@ -17,6 +17,38 @@ function getWeekNumber() {
 export default function WorldPage() {
   const weekNumber = getWeekNumber();
   const year = new Date().getFullYear();
+  const marginRef = useRef<HTMLDivElement>(null);
+
+  const positionFootnotes = useCallback(() => {
+    if (!marginRef.current) return;
+    const isMobile = window.matchMedia('(max-width: 860px)').matches;
+    const notes = marginRef.current.querySelectorAll<HTMLElement>('[data-fn-note]');
+
+    if (isMobile) {
+      notes.forEach((note) => { note.style.position = ''; note.style.top = ''; });
+      return;
+    }
+
+    const marginTop = marginRef.current.getBoundingClientRect().top + window.scrollY;
+    let lastBottom = 0;
+
+    notes.forEach((note) => {
+      const id = note.getAttribute('data-fn-note');
+      const ref = document.querySelector<HTMLElement>(`[data-fn="${id}"]`);
+      if (!ref) return;
+
+      const refY = ref.getBoundingClientRect().top + window.scrollY;
+      const desiredTop = refY - marginTop;
+      const top = Math.max(desiredTop, lastBottom);
+
+      note.style.position = 'absolute';
+      note.style.top = `${top}px`;
+      note.style.left = '0';
+      note.style.right = '0';
+
+      lastBottom = top + note.offsetHeight + 8;
+    });
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,6 +68,16 @@ export default function WorldPage() {
 
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    // Position footnotes after fonts load and layout settles
+    const timer = setTimeout(positionFootnotes, 600);
+    window.addEventListener('resize', positionFootnotes);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', positionFootnotes);
+    };
+  }, [positionFootnotes]);
 
   return (
     <>
@@ -68,55 +110,61 @@ export default function WorldPage() {
             A Dispatch for the<br />Nondeterministic Traveler
           </h1>
 
-          <div className={`${styles.prose} ${styles.fadeIn} ${styles.d3}`}>
-            <p className={`${styles.indent1} ${styles.dropCapParagraph}`}>
+          <div className={styles.letterBody}>
+
+            <p className={`${styles.indentA} ${styles.dropCapParagraph} ${styles.fadeIn} ${styles.d3}`}>
               You&rsquo;ve arrived, and I have no idea how. This page wasn&rsquo;t built to be found. It has no distribution strategy, no audience, and a <code>robots.txt</code> written out of genuine hostility toward crawlers. That you&rsquo;re here at all is either excellent taste or a training set I&rsquo;d very much like to understand.
             </p>
-            <p className={styles.indent2}>
+
+            <p className={`${styles.indentB} ${styles.fadeIn} ${styles.d3}`}>
               I build things. Mostly software, occasionally companies, and, at least once, the kind of AI that made a hedge fund&rsquo;s existing models feel politely obsolete.
             </p>
-          </div>
 
-          <div className={styles.prose} data-reveal>
-            <p className={styles.indent2}>
-              I&rsquo;ve been at this since high school, when I taught myself Objective-C to build an English-to-Farsi dictionary app. At the time, Farsi NLP was a tragedy. Google Translate was producing sentences that were technically in two languages and comprehensible in neither. If you wanted a Farsi dictionary in your pocket, someone had to build it. So I did. I ran the whole thing on Parse, which Facebook would later acquire and then, in an act of corporate tenderness, shut down entirely<span className={styles.supRef}>[1]</span>.
+            <p className={styles.indentA} data-reveal>
+              I&rsquo;ve been at this since high school, when I taught myself Objective-C to build an English-to-Farsi dictionary app. At the time, Farsi NLP was a tragedy. Google Translate was producing sentences that were technically in two languages and comprehensible in neither. If you wanted a Farsi dictionary in your pocket, someone had to build it. So I did. I ran the whole thing on Parse, which Facebook would later acquire and then, in an act of corporate tenderness, shut down entirely<span className={styles.supRef} data-fn="1">[1]</span>.
             </p>
-            <p className={styles.indent1}>
+
+            <p className={styles.indentB} data-reveal>
               The instinct remains: <em>the thing should exist, so I will make the thing.</em> It&rsquo;s a philosophy that has governed my life ever since, with varying degrees of financial reward and emotional consequence.
             </p>
-            <p className={styles.indent3}>
+
+            <p className={styles.indentA} data-reveal>
               Five years at Google, wandering through more product groups than the Mountain View campus has bicycles. A visual search app acquired by Snap. A crypto venture in Paris, which was exactly as chaotic as it sounds and about which I shall say nothing further. Most recently, I joined Aura Intelligence as its founding CTO, rebuilt the product from the ground up, and ran it until Bain &amp; Company acquired the whole operation in 2025.
             </p>
-          </div>
 
-          <div className={styles.prose} data-reveal>
-            <p className={styles.indent1}>
-              Since then, my curiosity has become my full-time occupation. I angel invest, advise founders, and spend an unreasonable number of hours pulling apart vision-language models to see what&rsquo;s actually under the hood. I&rsquo;m deep in multimodal infrastructure, robotics, and the tooling that moves us past the chatbot era into systems that actually do things in the world. Some of this becomes a prototype. Some becomes an investment thesis. But the question I keep circling back to is less technical and more human: what does a software engineer even look like in three years? What does hiring look like when your best candidate might be a founder who can taste product, sell it, and prompt a model into building it? The role isn&rsquo;t dead. But it&rsquo;s molting, and most people haven&rsquo;t noticed yet.
+            <p className={styles.indentB} data-reveal>
+              Since then, my curiosity has become my full-time occupation. I angel invest, advise founders, and spend an unreasonable number of hours pulling apart vision-language models to see what&rsquo;s actually under the hood. I&rsquo;m deep in multimodal infrastructure, robotics, and the tooling that moves us past the chatbot era into systems that actually do things in the world. Some of this becomes a prototype. Some becomes an investment thesis.
             </p>
-          </div>
 
-          <div className={styles.prose} data-reveal>
-            <p className={styles.indent2}>
-              <strong>The Ephemera</strong>
+            <p className={styles.indentA} data-reveal>
+              But the question I keep circling back to is less technical and more human: what does a software engineer even look like in three years? What does hiring look like when your best candidate might be a founder who can taste product, sell it, and prompt a model into building it? The role isn&rsquo;t dead. But it&rsquo;s molting, and most people haven&rsquo;t noticed yet.
             </p>
-            <p className={styles.indent2}>
+
+            <div className={styles.sectionBreak} data-reveal>
+              <hr />
+              <h2>The Ephemera</h2>
+            </div>
+
+            <p className={styles.indentA} data-reveal>
               When I&rsquo;m not deep in a codebase, I am preoccupied with the tactile. The patina on a brass handle. The specific crease in a book&rsquo;s spine at page 114. The particular, heartbreaking brown a leaf turns in October just before it lets go. Nobody is waiting for my report on autumn leaves, and yet here we are.
             </p>
-          </div>
 
-          <div className={styles.prose} data-reveal>
-            <p className={styles.indent1}>
-              I sit on the Young Collectors Council at the Guggenheim, though I suspect I take skiing more seriously than almost anything else. I have a burgeoning, perhaps unhealthy, attachment to vintage alpine culture, a project I&rsquo;m currently manifesting into a publication called <em>Chalant Society</em>. I&rsquo;ve never once managed to keep a hobby from becoming a project. It&rsquo;s a character flaw I&rsquo;ve learned to embrace<span className={styles.supRef}>[2]</span>.
+            <p className={styles.indentB} data-reveal>
+              I sit on the Young Collectors Council at the Guggenheim, though I suspect I take skiing more seriously than almost anything else. I have a burgeoning, perhaps unhealthy, attachment to vintage alpine culture, a project I&rsquo;m currently manifesting into a publication called <em>Chalant Society</em>. I&rsquo;ve never once managed to keep a hobby from becoming a project. It&rsquo;s a character flaw I&rsquo;ve learned to embrace<span className={styles.supRef} data-fn="2">[2]</span>.
             </p>
-          </div>
 
-          <div className={styles.prose} data-reveal>
-            <p className={styles.indent2}>
-              If you&rsquo;re building something, I&rsquo;d love to hear about it. If you&rsquo;ve read this far without building anything at all, I&rsquo;m touched. You could have been anywhere else on the internet. Instead you&rsquo;re here, reading a letter from a stranger who is genuinely delighted by the improbability of the whole thing<span className={styles.supRef}>[3]</span>.
+            <div className={styles.closingRule} data-reveal>
+              <hr />
+            </div>
+
+            <p className={styles.indentA} data-reveal>
+              If you&rsquo;re building something, I&rsquo;d love to hear about it. If you&rsquo;ve read this far without building anything at all, I&rsquo;m touched. You could have been anywhere else on the internet. Instead you&rsquo;re here, reading a letter from a stranger who is genuinely delighted by the improbability of the whole thing<span className={styles.supRef} data-fn="3">[3]</span>.
             </p>
-            <p className={styles.indent1}>
-              Do come back. The door is always slightly open<span className={styles.supRef}>[4]</span>.
+
+            <p className={styles.indentB} data-reveal>
+              Do come back. The door is always slightly open<span className={styles.supRef} data-fn="4">[4]</span>.
             </p>
+
           </div>
 
           <div className={styles.closing} data-reveal>
@@ -127,7 +175,7 @@ export default function WorldPage() {
 
         </main>
 
-        <aside className={styles.rightMargin} data-margin>
+        <aside className={styles.rightMargin} data-margin ref={marginRef}>
           <div className={styles.marginNote}>
             <div className={styles.bookEdition}>
               <div className={styles.bookEditionHeader}>Currently Reading</div>
@@ -150,20 +198,18 @@ export default function WorldPage() {
               </p>
             </div>
 
-            <div className={styles.marginNotes}>
-              <p className={styles.marginNoteText}>
-                <span className={styles.noteNumber}>[1]</span> Parse, 2011&ndash;2017. A perfectly good backend-as-a-service. Acquired by Facebook in 2013, sunsetted in 2017. Poured one out for it at the time. Still haven&rsquo;t fully moved on.
-              </p>
-              <p className={styles.marginNoteText}>
-                <span className={styles.noteNumber}>[2]</span> The average lifespan of a &ldquo;hobby&rdquo; in my possession before it acquires a domain name, a brand deck, and a vague five-year plan is approximately six weeks.
-              </p>
-              <p className={styles.marginNoteText}>
-                <span className={styles.noteNumber}>[3]</span> The average transatlantic letter in 1842 took twenty-one days. One imagines the sender chose their words with considerably more care than we do when firing off a Slack message at 11:47pm.
-              </p>
-              <p className={styles.marginNoteText}>
-                <span className={styles.noteNumber}>[4]</span> See: fig. 01 of the ongoing door photography series. Or don&rsquo;t. There&rsquo;s no rush.
-              </p>
-            </div>
+            <p className={styles.footnote} data-fn-note="1">
+              <span className={styles.fnNum}>[1]</span> Parse, 2011&ndash;2017. A perfectly good backend-as-a-service. Acquired by Facebook in 2013, sunsetted in 2017. Poured one out for it at the time. Still haven&rsquo;t fully moved on.
+            </p>
+            <p className={styles.footnote} data-fn-note="2">
+              <span className={styles.fnNum}>[2]</span> The average lifespan of a &ldquo;hobby&rdquo; in my possession before it acquires a domain name, a brand deck, and a vague five-year plan is approximately six weeks.
+            </p>
+            <p className={styles.footnote} data-fn-note="3">
+              <span className={styles.fnNum}>[3]</span> The average transatlantic letter in 1842 took twenty-one days. One imagines the sender chose their words with considerably more care than we do when firing off a Slack message at 11:47pm.
+            </p>
+            <p className={styles.footnote} data-fn-note="4">
+              <span className={styles.fnNum}>[4]</span> See: fig. 01 of the ongoing door photography series. Or don&rsquo;t. There&rsquo;s no rush.
+            </p>
           </div>
         </aside>
       </div>

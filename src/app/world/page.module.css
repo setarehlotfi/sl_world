@@ -108,7 +108,7 @@
 
 .mainContent {
   padding: 1rem 2.5rem 6rem 3rem;
-  max-width: 740px;
+  max-width: 880px;
   margin: 0 auto;
 }
 
@@ -171,43 +171,55 @@
   margin-bottom: 3rem;
 }
 
-/* ===== PROSE ===== */
-/*
- * BACKUP FONT (pre-Feb 2026):
- *   font-family: var(--font-serif);    → Libre Caslon Text
- *   font-size: 0.875rem;               → 14px
- *   font-weight: 400;
- *   line-height: 1.65;
- *
- * CURRENT FONT:
- *   font-family: var(--font-editorial); → Cormorant Garamond
- *   font-size: 1.3125rem;               → 21px
- *   font-weight: 300 (light);
- *   line-height: 1.15;
- */
+/* ===== LETTER BODY GRID ===== */
 
-.prose {
-  margin-bottom: 0.5rem;
+.letterBody {
+  display: grid;
+  grid-template-columns: 12% 1fr;
+  gap: 0;
 }
 
-.prose p {
+.letterBody > p {
   font-family: var(--font-editorial);
   font-size: 1.3125rem;
   font-weight: 300;
   line-height: 1.15;
   color: var(--color-text-muted);
-  margin-bottom: 0;
+  padding-bottom: 26px;
+  margin: 0;
 }
 
-.prose p em {
+.letterBody > p em {
   font-style: italic;
   font-weight: 500;
   color: var(--color-text);
 }
 
-.indent1 { margin-left: 6rem; }
-.indent2 { margin-left: 0; }
-.indent3 { margin-left: 8rem; }
+.letterBody code {
+  font-family: var(--font-typewriter-clean);
+  font-size: 0.85em;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+
+/* Alternating indentation via grid columns */
+.indentA { grid-column: 2 / 3; }
+.indentB { grid-column: 1 / 3; }
+
+/* ===== FOOTNOTES (in right margin) ===== */
+
+.footnote {
+  font-family: var(--font-typewriter);
+  font-size: 0.6rem;
+  line-height: 1.55;
+  color: var(--ink-light);
+  letter-spacing: 0.01em;
+  padding-bottom: 1rem;
+}
+
+.fnNum {
+  font-weight: 700;
+}
 
 /* ===== DROP CAP ===== */
 
@@ -235,10 +247,43 @@
 /* ===== SECTION BREAK ===== */
 
 .sectionBreak {
-  width: 1px;
-  height: 80px;
-  background: rgba(44, 36, 22, 0.05);
-  margin: 4rem auto;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2.5rem 0 2rem;
+}
+
+.sectionBreak hr {
+  width: 36px;
+  border: none;
+  border-top: 0.5px solid var(--ink-light);
+  margin: 0 auto 1.5rem;
+  opacity: 0.45;
+}
+
+.sectionBreak h2 {
+  font-family: var(--font-editorial);
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+/* ===== CLOSING RULE ===== */
+
+.closingRule {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 1.5rem 0 1rem;
+}
+
+.closingRule hr {
+  width: 36px;
+  border: none;
+  border-top: 0.5px solid var(--ink-light);
+  margin: 0 auto;
+  opacity: 0.45;
 }
 
 /* ===== CLOSING ===== */
@@ -294,8 +339,7 @@
 }
 
 .marginNote {
-  position: sticky;
-  top: 2.5rem;
+  position: relative;
 }
 
 /* --- Book Edition (Airmail Weekly style) --- */
@@ -455,25 +499,7 @@
   text-align: center;
 }
 
-/* --- Margin Notes (below book) --- */
-
-.marginNotes {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.marginNoteText {
-  font-family: var(--font-typewriter);
-  font-size: 0.6rem;
-  line-height: 1.55;
-  color: var(--ink-light);
-  letter-spacing: 0.01em;
-}
-
-.noteNumber {
-  font-weight: 700;
-}
+/* (Footnotes positioned via JS in right margin) */
 
 /* ===== ANIMATIONS ===== */
 
@@ -494,10 +520,9 @@
 .d2 { animation-delay: 0.28s; }
 .d3 { animation-delay: 0.48s; }
 
-/* Scroll-reveal for prose, photo blocks, and closing */
-.prose:not(.fadeIn),
-.photoBlock,
-.closing {
+/* Scroll-reveal for letter body elements, photo blocks, and closing */
+.letterBody [data-reveal],
+.photoBlock {
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.9s ease, transform 0.9s ease;
@@ -520,29 +545,52 @@
     font-size: 1.4rem;
   }
 
-  .prose p {
-    font-size: 0.82rem;
+  .letterBody {
+    grid-template-columns: 8% 1fr;
   }
 
-  .indent1 { margin-left: 3rem; }
-  .indent3 { margin-left: 4rem; }
+  .letterBody > p {
+    font-size: 1.1rem;
+  }
+
+  .footnote {
+    font-size: 0.55rem;
+  }
 }
 
 @media (max-width: 860px) {
   .pageLayout {
     grid-template-columns: 1fr;
+    overflow-x: hidden;
   }
 
   .mainContent {
     padding: 2rem;
+    max-width: 100%;
   }
 
-  .indent1 { margin-left: 2rem; }
-  .indent2 { margin-left: 0; }
-  .indent3 { margin-left: 3.5rem; }
+  .letterBody {
+    grid-template-columns: 8% 1fr;
+  }
+
+  .indentA {
+    grid-column: 2 / -1;
+  }
+
+  .indentB {
+    grid-column: 1 / -1;
+  }
+
+  .footnote {
+    position: static !important;
+    opacity: 0.7;
+    font-size: 0.5rem;
+    padding-bottom: 12px;
+  }
 
   .rightMargin {
     padding: 2rem;
+    overflow: visible;
   }
 
   .marginNote {
@@ -568,9 +616,5 @@
     max-width: 160px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .marginNotes {
-    display: none;
   }
 }
