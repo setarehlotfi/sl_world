@@ -59,6 +59,7 @@ export default function WorldPage() {
         <EditorSidebar />
 
         <main className={styles.mainContent} data-main>
+          <div className={styles.letterCard}>
           <div className={styles.mobileLogo}>
             <Image src="/images/logo.png" alt="Setareh Lotfi" width={160} height={46} className={styles.mobileLogoImg} />
           </div>
@@ -133,6 +134,7 @@ export default function WorldPage() {
           <div className={styles.closing} data-reveal>
             <p>Yours, unhurriedly,</p>
             <p>&mdash; S.L.</p>
+          </div>
           </div>
 
         </main>
