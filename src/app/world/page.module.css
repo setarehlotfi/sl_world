@@ -172,16 +172,29 @@
 }
 
 /* ===== PROSE ===== */
+/*
+ * BACKUP FONT (pre-Feb 2026):
+ *   font-family: var(--font-serif);    → Libre Caslon Text
+ *   font-size: 0.875rem;               → 14px
+ *   font-weight: 400;
+ *   line-height: 1.65;
+ *
+ * CURRENT FONT:
+ *   font-family: var(--font-editorial); → Cormorant Garamond
+ *   font-size: 1.3125rem;               → 21px
+ *   font-weight: 300 (light);
+ *   line-height: 1.15;
+ */
 
 .prose {
   margin-bottom: 0.5rem;
 }
 
 .prose p {
-  font-family: var(--font-serif);
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.65;
+  font-family: var(--font-editorial);
+  font-size: 1.3125rem;
+  font-weight: 300;
+  line-height: 1.15;
   color: var(--color-text-muted);
   margin-bottom: 0;
 }
@@ -229,6 +242,7 @@
 }
 
 /* ===== CLOSING ===== */
+/* Same font swap as .prose p — see backup note above */
 
 .closing {
   margin-top: 3rem;
@@ -237,11 +251,12 @@
 }
 
 .closing p {
-  font-family: var(--font-serif);
-  font-size: 0.875rem;
+  font-family: var(--font-editorial);
+  font-size: 1.3125rem;
+  font-weight: 300;
   font-style: normal;
   color: var(--color-text-muted);
-  line-height: 1.65;
+  line-height: 1.15;
 }
 
 /* ===== PHOTO BLOCK ===== */

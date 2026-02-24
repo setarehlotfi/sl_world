@@ -1,4 +1,4 @@
-import { Libre_Caslon_Text, Karla, Dancing_Script, Playfair_Display, Special_Elite, Courier_Prime } from "next/font/google";
+import { Libre_Caslon_Text, Karla, Dancing_Script, Playfair_Display, Special_Elite, Courier_Prime, Cormorant_Garamond } from "next/font/google";
 
 export const libreCaslon = Libre_Caslon_Text({
   subsets: ["latin"],
@@ -42,5 +42,13 @@ export const courierPrime = Courier_Prime({
   weight: ["400", "700"],
   style: ["normal", "italic"],
   variable: "--font-typewriter-clean",
+  display: "swap",
+});
+
+export const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-editorial",
   display: "swap",
 });

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { libreCaslon, karla, dancingScript, playfair, specialElite, courierPrime } from "@/lib/fonts";
+import { libreCaslon, karla, dancingScript, playfair, specialElite, courierPrime, cormorantGaramond } from "@/lib/fonts";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${libreCaslon.variable} ${karla.variable} ${dancingScript.variable} ${playfair.variable} ${specialElite.variable} ${courierPrime.variable}`}>
+    <html lang="en" className={`${libreCaslon.variable} ${karla.variable} ${dancingScript.variable} ${playfair.variable} ${specialElite.variable} ${courierPrime.variable} ${cormorantGaramond.variable}`}>
       <body>
         {/* Background texture layer */}
         <div className="canvas-texture" aria-hidden="true" />
