@@ -134,7 +134,7 @@
   text-align: center;
   color: var(--color-text);
   line-height: 1.3;
-  margin-bottom: 7rem;
+  margin-bottom: 5rem;
 }
 
 /* ===== DATELINE ===== */
@@ -157,9 +157,9 @@
 
 .prose p {
   font-family: var(--font-serif);
-  font-size: 1.55rem;
+  font-size: 1.15rem;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--color-text-muted);
   margin-bottom: 0;
 }
@@ -170,9 +170,9 @@
   color: var(--color-text);
 }
 
-.indent1 { margin-left: 8rem; }
+.indent1 { margin-left: 6rem; }
 .indent2 { margin-left: 0; }
-.indent3 { margin-left: 10rem; }
+.indent3 { margin-left: 8rem; }
 
 .supRef {
   font-family: var(--font-typewriter);
@@ -257,7 +257,7 @@
   font-size: 0.65rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-light);
+  color: var(--ink);
   text-align: center;
   margin-bottom: 0.4rem;
 }
@@ -267,7 +267,7 @@
   font-size: 0.55rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink);
   text-align: center;
   margin-bottom: 0.5rem;
 }
@@ -476,11 +476,11 @@
   }
 
   .prose p {
-    font-size: 1.3rem;
+    font-size: 1.05rem;
   }
 
-  .indent1 { margin-left: 4rem; }
-  .indent3 { margin-left: 5rem; }
+  .indent1 { margin-left: 3rem; }
+  .indent3 { margin-left: 4rem; }
 }
 
 @media (max-width: 860px) {
