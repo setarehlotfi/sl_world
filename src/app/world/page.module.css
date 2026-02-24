@@ -548,4 +548,14 @@
     justify-content: center;
     margin-bottom: 1.5rem;
   }
+
+  .bookCover {
+    max-width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .marginNotes {
+    display: none;
+  }
 }
