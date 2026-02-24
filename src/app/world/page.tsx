@@ -69,10 +69,10 @@ export default function WorldPage() {
 
           <div className={`${styles.prose} ${styles.fadeIn} ${styles.d3}`}>
             <p className={`${styles.indent1} ${styles.dropCapParagraph}`}>
-              <span className={styles.dropCap}>D</span>ear visitor, this page has no discoverability pipeline, no embedding in anyone&rsquo;s retrieval system, and a robots.txt that was written with genuine intent. Your arrival appears to be non-deterministic. I take that as a sign of excellent taste.
+              <span className={styles.dropCap}>D</span>ear visitor, this page has no discoverability pipeline, no embedding in anyone&rsquo;s retrieval system, and a <code>robots.txt</code> that was written with genuine intent. Your arrival appears to be non-deterministic. I take that as a sign of excellent taste.
             </p>
             <p className={styles.indent3}>
-              I build things. Mostly software, occasionally companies, and recently the kind of AI that makes other people&rsquo;s AI look like a sundial at night.
+              I build things. Mostly software, occasionally companies, and at least once, the kind of AI that made a hedge fund&rsquo;s existing models feel politely obsolete.
             </p>
           </div>
 
@@ -92,7 +92,7 @@ export default function WorldPage() {
 
           <div className={styles.prose} data-reveal>
             <p className={styles.indent1}>
-              These days I angel invest, advise founders, and think about developer tooling, vibe coding, and what vision-language models are about to make possible.
+              These days I angel invest, advise founders, and spend most of my time pulling apart developer tooling, vibe coding, and vision-language models to see what&rsquo;s actually there. Some of that turns into prototypes. Some of it turns into investments. All of it scratches the same itch.
             </p>
           </div>
 
