@@ -4,13 +4,13 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "From Setareh's Sketch Book",
-  description: "A personal world.",
+  description: "A personal gazette by SL on random creative work and gentle ai research.",
   icons: {
     icon: "/images/favicon.png",
   },
   openGraph: {
     title: "From Setareh's Sketch Book",
-    description: "A personal world.",
+    description: "A personal gazette by SL on random creative work and gentle ai research.",
     images: ["/images/sl-world-hero.png"],
   },
 };
