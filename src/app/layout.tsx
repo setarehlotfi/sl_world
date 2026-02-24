@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { libreCaslon, karla, dancingScript, playfair, specialElite, courierPrime } from "@/lib/fonts";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -42,6 +43,7 @@ export default function RootLayout({
         {/* Background texture layer */}
         <div className="canvas-texture" aria-hidden="true" />
         {children}
+        <Analytics />
       </body>
     </html>
   );
