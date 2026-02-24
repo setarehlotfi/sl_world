@@ -248,16 +248,21 @@ const TAG_DESCRIPTIONS: Record<string, string> = {
   "Gateway Drugs": "Start here. We\u2019ll wait.",
 };
 
-const TAG_STYLE_MAP: Record<string, string> = {
-  "Fiction & Literature": styles.tagFiction,
-  "Finance & Power": styles.tagFinance,
-  "Dead Philosophers": styles.tagPhilosophers,
-  "For the Builders": styles.tagBuilders,
-  "Self-Improvement (Disguised)": styles.tagSelfImprovement,
-  "Cocktail Party Ammunition": styles.tagCocktail,
-  "Endurance Tests": styles.tagEndurance,
-  "Gateway Drugs": styles.tagGateway,
-};
+function toRoman(n: number): string {
+  const numerals: [number, string][] = [
+    [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'],
+    [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'],
+    [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I'],
+  ];
+  let result = '';
+  for (const [value, symbol] of numerals) {
+    while (n >= value) {
+      result += symbol;
+      n -= value;
+    }
+  }
+  return result;
+}
 
 const pretensionLabels = [
   "",
@@ -285,39 +290,27 @@ function PretensionMeter({ level }: { level: number }) {
   );
 }
 
-function BookCard({ book }: { book: Book }) {
-  const [expanded, setExpanded] = useState(false);
-
+function BookCard({ book, index }: { book: Book; index: number }) {
   return (
-    <div className={styles.bookCard} onClick={() => setExpanded(!expanded)}>
-      <div className={styles.bookHeader}>
-        <div className={styles.bookInfo}>
-          <div className={styles.bookTitleRow}>
-            <h3 className={styles.bookTitle}>{book.title}</h3>
-            {book.publisher && (
-              <span className={styles.bookPublisher}>{book.publisher}</span>
-            )}
-          </div>
+    <div className={styles.bookCard}>
+      <div className={styles.cardHeader}>
+        <span className={styles.cardNumeral}>{toRoman(index + 1)}.</span>
+        <div className={styles.cardTitleBlock}>
+          <h3 className={styles.bookTitle}>{book.title}</h3>
           <p className={styles.bookAuthor}>{book.author}</p>
         </div>
-        <div className={`${styles.expandToggle} ${expanded ? styles.expandToggleOpen : ''}`}>
-          +
+      </div>
+
+      <p className={styles.bookDescription}>{book.description}</p>
+
+      <div className={styles.cardFooter}>
+        <div className={styles.bookTags}>
+          {book.tags.map((tag) => (
+            <span key={tag} className={styles.bookTag}>
+              [{tag}]
+            </span>
+          ))}
         </div>
-      </div>
-
-      <div className={styles.bookTags}>
-        {book.tags.map((tag) => (
-          <span
-            key={tag}
-            className={`${styles.bookTag} ${TAG_STYLE_MAP[tag] || ''}`}
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <div className={`${styles.expandable} ${expanded ? styles.expandableOpen : ''}`}>
-        <p className={styles.bookDescription}>{book.description}</p>
         <PretensionMeter level={book.pretension} />
       </div>
     </div>
@@ -394,9 +387,9 @@ export default function ReadingList() {
         })}
       </div>
 
-      <div>
-        {filtered.map((book) => (
-          <BookCard key={book.title} book={book} />
+      <div className={styles.bookGrid}>
+        {filtered.map((book, i) => (
+          <BookCard key={book.title} book={book} index={i} />
         ))}
       </div>
 

@@ -4,8 +4,8 @@
 
 .section {
   padding: 2rem 2rem 3rem;
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 100%;
+  box-sizing: border-box;
   background: #F5F5DC;
   border-radius: 8px;
 }
@@ -101,6 +101,7 @@
   gap: 4px 14px;
   padding: 0.8rem 0;
   border-bottom: 1px solid var(--color-text);
+  margin-bottom: 2rem;
 }
 
 .tagButton {
@@ -125,38 +126,50 @@
   color: var(--color-text);
 }
 
+/* ===== BOOK GRID ===== */
+
+.bookGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0;
+}
+
 /* ===== BOOK CARDS ===== */
 
 .bookCard {
-  border-bottom: 1px solid var(--ink-faint);
-  padding: 1.8rem 0;
-  cursor: pointer;
-}
-
-.bookCard:last-child {
-  border-bottom: none;
-}
-
-.bookHeader {
+  border: 1px solid var(--ink-faint);
+  padding: 1.4rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+.cardHeader {
+  display: flex;
+  gap: 1rem;
   align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--ink-faint);
 }
 
-.bookInfo {
+.cardNumeral {
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.cardTitleBlock {
   flex: 1;
-}
-
-.bookTitleRow {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
 }
 
 .bookTitle {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--color-text);
   margin: 0;
@@ -165,95 +178,52 @@
   line-height: 1.3;
 }
 
-.bookPublisher {
-  font-family: var(--font-serif);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--ink-light);
-  border: 1px solid var(--ink-faint);
-  border-radius: 3px;
-  padding: 2px 8px;
-}
-
 .bookAuthor {
   font-family: var(--font-serif);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
+  font-style: italic;
   color: var(--ink-light);
   margin: 4px 0 0;
   letter-spacing: 0.02em;
 }
 
-.expandToggle {
-  color: var(--ink-light);
-  font-size: 1.1rem;
-  transition: transform 0.3s ease;
-  margin-left: 16px;
-  margin-top: 4px;
-  flex-shrink: 0;
-  font-family: var(--font-serif);
-}
-
-.expandToggleOpen {
-  transform: rotate(45deg);
-}
-
-/* ===== BOOK TAGS ===== */
-
-.bookTags {
-  display: flex;
-  gap: 6px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-}
-
-.bookTag {
-  font-family: var(--font-serif);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  padding: 3px 10px;
-  border-radius: 3px;
-}
-
-/* Tag color variants */
-.tagFiction         { background: rgba(44, 36, 22, 0.08); color: var(--color-text-muted); }
-.tagFinance         { background: rgba(139, 115, 85, 0.12); color: var(--color-accent); }
-.tagPhilosophers    { background: rgba(44, 36, 22, 0.06); color: var(--ink); }
-.tagBuilders        { background: rgba(90, 110, 80, 0.1); color: #5a6e50; }
-.tagSelfImprovement { background: rgba(120, 90, 100, 0.08); color: #785a64; }
-.tagCocktail        { background: rgba(139, 115, 85, 0.08); color: var(--color-accent); }
-.tagEndurance       { background: rgba(140, 80, 70, 0.08); color: #8c5046; }
-.tagGateway         { background: rgba(70, 110, 100, 0.08); color: #466e64; }
-
-/* ===== EXPANDED CONTENT ===== */
-
-.expandable {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease, opacity 0.4s ease;
-  opacity: 0;
-}
-
-.expandableOpen {
-  max-height: 500px;
-  opacity: 1;
-}
+/* ===== BOOK DESCRIPTION ===== */
 
 .bookDescription {
   font-family: var(--font-typewriter);
-  font-size: 0.88rem;
+  font-size: 0.72rem;
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.7;
   color: var(--ink);
-  margin-top: 1rem;
-  margin-bottom: 0.4rem;
+  flex: 1;
+  margin-bottom: 1rem;
 }
 
 .bookDescription em {
   font-weight: 700;
   color: var(--color-text);
+}
+
+/* ===== CARD FOOTER (tags + pretension) ===== */
+
+.cardFooter {
+  margin-top: auto;
+}
+
+.bookTags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.bookTag {
+  font-family: var(--font-typewriter);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-light);
 }
 
 /* ===== PRETENSION METER ===== */
@@ -262,12 +232,11 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: 8px;
 }
 
 .pretensionLabel {
   font-family: var(--font-serif);
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--ink-light);
@@ -279,16 +248,15 @@
 }
 
 .pretensionDotFilled {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--color-accent);
-  transition: background-color 0.3s ease;
 }
 
 .pretensionDotEmpty {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: transparent;
   border: 1px solid var(--ink-faint);
@@ -296,7 +264,7 @@
 
 .pretensionName {
   font-family: var(--font-serif);
-  font-size: 0.8rem;
+  font-size: 0.68rem;
   color: var(--ink-light);
   font-style: italic;
 }
@@ -315,6 +283,7 @@
   line-height: 1.8;
   color: var(--color-text);
   letter-spacing: 0.02em;
+  max-width: 600px;
 }
 
 .footerNote strong {
@@ -333,22 +302,22 @@
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 1100px) {
+  .bookGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .chapterTitle {
     font-size: 1.8rem;
-  }
-
-  .bookTitle {
-    font-size: 0.85rem;
-  }
-
-  .bookDescription {
-    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 860px) {
+  .bookGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .section {
-    padding-top: 1rem;
+    padding: 1.5rem 1rem 2rem;
   }
 
   .chapterTitle {
@@ -357,20 +326,13 @@
   }
 
   .subtitle {
-    margin-bottom: 2.5rem;
-    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    font-size: 0.85rem;
   }
+}
 
-  .controls {
-    flex-direction: column;
-  }
-
-  .searchWrapper {
-    min-width: unset;
-    width: 100%;
-  }
-
-  .sortSelect {
-    width: 100%;
+@media (max-width: 520px) {
+  .bookGrid {
+    grid-template-columns: 1fr;
   }
 }
