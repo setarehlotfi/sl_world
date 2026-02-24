@@ -69,13 +69,30 @@ export default function WorldPage() {
 
           <div className={`${styles.prose} ${styles.fadeIn} ${styles.d3}`}>
             <p className={`${styles.indent1} ${styles.dropCapParagraph}`}>
-              <span className={styles.dropCap}>D</span>ear visitor, you&rsquo;ve found me. I can&rsquo;t reproduce this result. This page has no discoverability pipeline, no embedding in anyone&rsquo;s retrieval system, and a robots.txt that was written with genuine intent. Your arrival appears to be non-deterministic, and I find that as a sign of excellent taste on your part.
-            </p>
-            <p className={styles.indent2}>
-              I am a person who makes things. I&rsquo;ve been at it since high school, when the App Store was still young enough to feel like a frontier and I became the kind of person who read Apple developer documentation for fun. I taught myself Objective-C and built an English-to-Farsi dictionary app because it didn&rsquo;t exist and I needed one. This was around 2010. There was no NLP to speak of on mobile. Siri didn&rsquo;t exist. Google Translate was a website that barely worked. If you wanted a Farsi dictionary in your pocket, someone had to sit down and build you a Farsi dictionary for your pocket. I eventually ran the whole thing on Parse, which Facebook would later acquire and then, in an act of corporate tenderness, shut down entirely<span className={styles.supRef}>[1]</span>. I think about what that app would look like today with vibe coding and genuinely lose a few minutes to grief. But the point is: <em>the thing should exist, so I will make the thing</em>. That particular instinct has been running my life ever since, with varying degrees of financial and emotional consequence.
+              <span className={styles.dropCap}>D</span>ear visitor, this page has no discoverability pipeline, no embedding in anyone&rsquo;s retrieval system, and a robots.txt that was written with genuine intent. Your arrival appears to be non-deterministic. I take that as a sign of excellent taste.
             </p>
             <p className={styles.indent3}>
-              It ran me through five years at Google, across more product groups than most people know exist. Maps, Gmail, Nest hardware, Waze. It got me to build a visual search app that was acquired by Snap. It ran me to Paris, where I co-founded a crypto company, which is exactly as chaotic as it sounds. And most recently it made me founding CTO of Aura Intelligence, where I built an AI platform for hedge funds and consultancies, scaled it to 30 people and $6M in revenue, launched one of Anthropic&rsquo;s first MCP integrations, and watched Bain &amp; Company acquire the whole thing.
+              I build things. Mostly software, occasionally companies, and recently the kind of AI that makes other people&rsquo;s AI look like a sundial at night.
+            </p>
+          </div>
+
+          <div className={styles.prose} data-reveal>
+            <p className={styles.indent2}>
+              I&rsquo;ve been at it since high school, when I taught myself Objective-C and built an English-to-Farsi dictionary app because it didn&rsquo;t exist and I needed one. The state of the art in Farsi NLP was Google Translate producing sentences that were technically in two languages and comprehensible in neither. If you wanted a Farsi dictionary in your pocket, someone had to sit down and build you a Farsi dictionary for your pocket. I ran the whole thing on Parse, which Facebook would later acquire and then, in an act of corporate tenderness, shut down entirely<span className={styles.supRef}>[1]</span>.
+            </p>
+            <p className={styles.indent1}>
+              <em>The thing should exist, so I will make the thing.</em> That instinct has been running my life ever since, with varying degrees of financial and emotional consequence.
+            </p>
+            <p className={styles.indent3}>
+              Five years at Google, across more product groups than Google itself probably remembers. A visual search app, acquired by Snap. A crypto company in Paris, which is exactly as chaotic as it sounds and about which I will say nothing further. Most recently, founding CTO of something called Aura Intelligence, which built AI for hedge funds until Bain &amp; Company acquired the whole thing.
+            </p>
+          </div>
+
+          <div className={styles.sectionBreak} />
+
+          <div className={styles.prose} data-reveal>
+            <p className={styles.indent1}>
+              These days I angel invest, advise founders, and think about developer tooling, vibe coding, and what vision-language models are about to make possible.
             </p>
           </div>
 
@@ -89,11 +106,8 @@ export default function WorldPage() {
           </div>
 
           <div className={styles.prose} data-reveal>
-            <p className={styles.indent1}>
-              These days I angel invest, advise early-stage founders, and spend most of my time thinking about developer tooling, vibe coding, and what vision-language models are about to make possible.
-            </p>
             <p className={styles.indent2}>
-              I&rsquo;m also interested in how things accumulate meaning over time. The patina on a brass handle. The crease in a book&rsquo;s spine that tells you someone paused on page 114. The particular shade of brown that a leaf turns in October, just before it lets go. These are not urgent observations. Nobody is waiting for my report on autumn leaves. And yet I find them <em>devastatingly important</em>, in the way that all unimportant things secretly are.
+              I also think about the patina on a brass handle. The crease in a book&rsquo;s spine at page 114. The particular brown a leaf turns in October, just before it lets go. Nobody is waiting for my report on autumn leaves. And yet.
             </p>
           </div>
 
@@ -101,7 +115,7 @@ export default function WorldPage() {
 
           <div className={styles.prose} data-reveal>
             <p className={styles.indent1}>
-              I love art and sit on the young collectors group at the Guggenheim and the young members group at the Met. Skiing is the one thing I take more seriously than software. I have an unreasonable love for vintage alpine skiing culture that I&rsquo;m trying to turn into a lifestyle publication called <em>Chalant Society</em>. Because I&rsquo;ve never once managed to keep a hobby from becoming a project<span className={styles.supRef}>[2]</span>.
+              I sit on the young collectors group at the Guggenheim and the Met. Skiing is the one thing I take more seriously than software. I have an unreasonable attachment to vintage alpine culture that I&rsquo;m trying to turn into a publication called <em>Chalant Society</em>, because I&rsquo;ve never once managed to keep a hobby from becoming a project<span className={styles.supRef}>[2]</span>.
             </p>
           </div>
 
@@ -109,13 +123,10 @@ export default function WorldPage() {
 
           <div className={styles.prose} data-reveal>
             <p className={styles.indent2}>
-              If you&rsquo;re building something interesting, I&rsquo;d love to hear about it. If you&rsquo;ve read this far without building anything at all, I&rsquo;m genuinely touched. You could have been doing anything. Scrolling, clicking, buying something you don&rsquo;t need. Instead you&rsquo;re here, reading a letter from a stranger who types slowly and thinks even slower. That says something rather nice about you.
+              If you&rsquo;re building something, I&rsquo;d love to hear about it. If you&rsquo;ve read this far without building anything at all, I&rsquo;m touched. You could have been doing anything. Instead you&rsquo;re here, reading a letter from a stranger who types slowly and thinks even slower<span className={styles.supRef}>[3]</span>.
             </p>
             <p className={styles.indent1}>
-              This is a letter on the internet in 2026, which is either an act of faith or an act of defiance. I prefer to think it&rsquo;s both<span className={styles.supRef}>[3]</span>.
-            </p>
-            <p className={styles.indent2}>
-              Do come back, whenever you remember. The door is always slightly open<span className={styles.supRef}>[4]</span>.
+              Do come back. The door is always slightly open<span className={styles.supRef}>[4]</span>.
             </p>
           </div>
 
