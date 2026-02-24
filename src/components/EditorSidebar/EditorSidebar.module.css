@@ -58,16 +58,11 @@
 }
 
 .navCategory.active {
-  color: var(--ink-light);
+  color: var(--ink);
 }
 
 .navCategory.active::before {
-  content: "\2022";
-  font-size: 0.65rem;
-  position: absolute;
-  left: -1.1rem;
-  top: 0.15rem;
-  color: var(--ink);
+  content: none;
 }
 
 /* ===== Sub-items ===== */

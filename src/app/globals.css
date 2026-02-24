@@ -9,17 +9,14 @@
 
 /* === Custom Properties === */
 :root {
-  --color-bg: #E8DFCE;
+  --color-bg: #FDF8F1;
   --color-text: #2c2416;
-  --color-text-muted: #6b5d4f;
+  --color-text-muted: #4E4F4D;
   --color-accent: #8b7355;
   --color-accent-hover: #a08462;
   --color-border: #d4c9b8;
 
-  --font-serif: "Georgia", serif;
-  --font-sans: "Helvetica Neue", sans-serif;
-  --font-display: "Playfair Display", Georgia, serif;
-  --font-typewriter: "Special Elite", "Courier New", monospace;
+  /* Font variables are set by Next.js font classes on <html> — see src/lib/fonts.ts */
 
   --ink: rgba(44, 36, 22, 0.62);
   --ink-dark: rgba(44, 36, 22, 0.82);
@@ -61,23 +58,15 @@ html {
 body {
   font-family: var(--font-sans);
   color: var(--color-text);
-  background-color: transparent;
+  background-color: var(--color-bg);
   min-height: 100vh;
   min-height: 100dvh;
   position: relative;
 }
 
-/* Canvas texture layer — sits behind all content */
+/* Canvas texture layer — disabled */
 .canvas-texture {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-color: var(--color-bg);
-  background-image: url("/textures/paper-photo.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  transition: background-color 0.8s ease;
+  display: none;
 }
 
 a {

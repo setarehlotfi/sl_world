@@ -65,66 +65,54 @@ export default function WorldPage() {
           </div>
           <div className={`${styles.chapterNumber} ${styles.fadeIn} ${styles.d1}`}>I.</div>
           <h1 className={`${styles.chapterTitle} ${styles.fadeIn} ${styles.d2}`}>
-            A Letter to<br />Whoever Arrives
+            A Dispatch for the<br />Nondeterministic Traveler
           </h1>
 
           <div className={`${styles.prose} ${styles.fadeIn} ${styles.d3}`}>
             <p className={`${styles.indent1} ${styles.dropCapParagraph}`}>
-              <span className={styles.dropCap}>D</span>ear visitor, this page has no discoverability pipeline, no embedding in anyone&rsquo;s retrieval system, and a <code>robots.txt</code> that was written with genuine intent. Your arrival appears to be non-deterministic. I take that as a sign of excellent taste.
+              You&rsquo;ve arrived, and I have no idea how. This page wasn&rsquo;t built to be found. It has no distribution strategy, no audience, and a <code>robots.txt</code> written out of genuine hostility toward crawlers. That you&rsquo;re here at all is either excellent taste or a training set I&rsquo;d very much like to understand.
+            </p>
+            <p className={styles.indent2}>
+              I build things. Mostly software, occasionally companies, and, at least once, the kind of AI that made a hedge fund&rsquo;s existing models feel politely obsolete.
+            </p>
+          </div>
+
+          <div className={styles.prose} data-reveal>
+            <p className={styles.indent2}>
+              I&rsquo;ve been at this since high school, when I taught myself Objective-C to build an English-to-Farsi dictionary app. At the time, Farsi NLP was a tragedy. Google Translate was producing sentences that were technically in two languages and comprehensible in neither. If you wanted a Farsi dictionary in your pocket, someone had to build it. So I did. I ran the whole thing on Parse, which Facebook would later acquire and then, in an act of corporate tenderness, shut down entirely<span className={styles.supRef}>[1]</span>.
+            </p>
+            <p className={styles.indent1}>
+              The instinct remains: <em>the thing should exist, so I will make the thing.</em> It&rsquo;s a philosophy that has governed my life ever since, with varying degrees of financial reward and emotional consequence.
             </p>
             <p className={styles.indent3}>
-              I build things. Mostly software, occasionally companies, and at least once, the kind of AI that made a hedge fund&rsquo;s existing models feel politely obsolete.
+              Five years at Google, wandering through more product groups than the Mountain View campus has bicycles. A visual search app acquired by Snap. A crypto venture in Paris, which was exactly as chaotic as it sounds and about which I shall say nothing further. Most recently, I joined Aura Intelligence as its founding CTO, rebuilt the product from the ground up, and ran it until Bain &amp; Company acquired the whole operation in 2025.
+            </p>
+          </div>
+
+          <div className={styles.prose} data-reveal>
+            <p className={styles.indent1}>
+              Since then, my curiosity has become my full-time occupation. I angel invest, advise founders, and spend an unreasonable number of hours pulling apart vision-language models to see what&rsquo;s actually under the hood. I&rsquo;m deep in multimodal infrastructure, robotics, and the tooling that moves us past the chatbot era into systems that actually do things in the world. Some of this becomes a prototype. Some becomes an investment thesis. But the question I keep circling back to is less technical and more human: what does a software engineer even look like in three years? What does hiring look like when your best candidate might be a founder who can taste product, sell it, and prompt a model into building it? The role isn&rsquo;t dead. But it&rsquo;s molting, and most people haven&rsquo;t noticed yet.
             </p>
           </div>
 
           <div className={styles.prose} data-reveal>
             <p className={styles.indent2}>
-              I&rsquo;ve been at it since high school, when I taught myself Objective-C and built an English-to-Farsi dictionary app because it didn&rsquo;t exist and I needed one. The state of the art in Farsi NLP was Google Translate producing sentences that were technically in two languages and comprehensible in neither. If you wanted a Farsi dictionary in your pocket, someone had to sit down and build you a Farsi dictionary for your pocket. I ran the whole thing on Parse, which Facebook would later acquire and then, in an act of corporate tenderness, shut down entirely<span className={styles.supRef}>[1]</span>.
+              <strong>The Ephemera</strong>
             </p>
-            <p className={styles.indent1}>
-              <em>The thing should exist, so I will make the thing.</em> That instinct has been running my life ever since, with varying degrees of financial and emotional consequence.
-            </p>
-            <p className={styles.indent3}>
-              Five years at Google, across more product groups than Google itself probably remembers. A visual search app, acquired by Snap. A crypto company in Paris, which is exactly as chaotic as it sounds and about which I will say nothing further. Most recently, founding CTO of something called Aura Intelligence, which built AI for hedge funds until Bain &amp; Company acquired the whole thing.
+            <p className={styles.indent2}>
+              When I&rsquo;m not deep in a codebase, I am preoccupied with the tactile. The patina on a brass handle. The specific crease in a book&rsquo;s spine at page 114. The particular, heartbreaking brown a leaf turns in October just before it lets go. Nobody is waiting for my report on autumn leaves, and yet here we are.
             </p>
           </div>
-
-          <div className={styles.sectionBreak} />
 
           <div className={styles.prose} data-reveal>
             <p className={styles.indent1}>
-              These days I angel invest, advise founders, and spend most of my time pulling apart developer tooling, vibe coding, and vision-language models to see what&rsquo;s actually there. Some of that turns into prototypes. Some of it turns into investments. All of it scratches the same itch.
-            </p>
-          </div>
-
-          <div className={styles.sectionBreak} />
-
-          <div className={styles.photoBlock} data-reveal>
-            <div className={styles.photoPlaceholder} />
-            <p className={styles.photoCaption}>
-              fig. 01. My desk on a Tuesday, or possibly a Wednesday. <em>Note the tea, the unfinished letter, the book I keep meaning to return.</em>
+              I sit on the Young Collectors Council at the Guggenheim, though I suspect I take skiing more seriously than almost anything else. I have a burgeoning, perhaps unhealthy, attachment to vintage alpine culture, a project I&rsquo;m currently manifesting into a publication called <em>Chalant Society</em>. I&rsquo;ve never once managed to keep a hobby from becoming a project. It&rsquo;s a character flaw I&rsquo;ve learned to embrace<span className={styles.supRef}>[2]</span>.
             </p>
           </div>
 
           <div className={styles.prose} data-reveal>
             <p className={styles.indent2}>
-              I also think about the patina on a brass handle. The crease in a book&rsquo;s spine at page 114. The particular brown a leaf turns in October, just before it lets go. Nobody is waiting for my report on autumn leaves. And yet.
-            </p>
-          </div>
-
-          <div className={styles.sectionBreak} />
-
-          <div className={styles.prose} data-reveal>
-            <p className={styles.indent1}>
-              I sit on the young collectors group at the Guggenheim and the Met. Skiing is the one thing I take more seriously than software. I have an unreasonable attachment to vintage alpine culture that I&rsquo;m trying to turn into a publication called <em>Chalant Society</em>, because I&rsquo;ve never once managed to keep a hobby from becoming a project<span className={styles.supRef}>[2]</span>.
-            </p>
-          </div>
-
-          <div className={styles.sectionBreak} />
-
-          <div className={styles.prose} data-reveal>
-            <p className={styles.indent2}>
-              If you&rsquo;re building something, I&rsquo;d love to hear about it. If you&rsquo;ve read this far without building anything at all, I&rsquo;m touched. You could have been doing anything. Instead you&rsquo;re here, reading a letter from a stranger who types slowly and thinks even slower<span className={styles.supRef}>[3]</span>.
+              If you&rsquo;re building something, I&rsquo;d love to hear about it. If you&rsquo;ve read this far without building anything at all, I&rsquo;m touched. You could have been anywhere else on the internet. Instead you&rsquo;re here, reading a letter from a stranger who is genuinely delighted by the improbability of the whole thing<span className={styles.supRef}>[3]</span>.
             </p>
             <p className={styles.indent1}>
               Do come back. The door is always slightly open<span className={styles.supRef}>[4]</span>.
@@ -132,7 +120,7 @@ export default function WorldPage() {
           </div>
 
           <div className={styles.closing} data-reveal>
-            <p>Yours, unhurriedly,</p>
+            <p>From the desk of,</p>
             <p>&mdash; S.L.</p>
           </div>
           </div>
@@ -146,9 +134,13 @@ export default function WorldPage() {
               <div className={styles.bookEditionWeek}>Week {weekNumber}, {year}</div>
               <div className={styles.bookEditionRule} />
               <div className={styles.bookCover}>
-                <div className={styles.bookCoverInner}>
-                  <span className={styles.bookCoverTitle}>Apple<br />in China</span>
-                </div>
+                <Image
+                  src="/images/book_cover_feb.png"
+                  alt="Apple in China by Patrick McGee"
+                  width={180}
+                  height={270}
+                  className={styles.bookCoverImg}
+                />
               </div>
               <h3 className={styles.bookTitle}>Apple in China</h3>
               <p className={styles.bookAuthorName}>Patrick McGee</p>
